@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="./css folder/app.css">
+<title>Photo Gallery</title>
+<link rel="stylesheet" href="style.css">
+
+<body>
+    <div class="row">
+        <div class="column">
+            <img class="demo cursor" src="Kedarnath.jpg" style="width:300%" height="200px" onclick="currentSlide(1)"
+                alt="Kedarnath">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="Konark Sun.png" style="width:50%" onclick="currentSlide(2)"
+                alt="Konark Sun">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="Shridi.jpg" style="width:80%" onclick="currentSlide(3)"
+                alt="Shridi">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="Tirupathi Temple.jpg" style="width:190%" onclick="currentSlide(4)"
+                alt="Tirupathi">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="Varanasi.png" style="width: 100%" onclick="currentSlide(5)"
+                alt="Varanasi">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="Mangalagiri.jpg" style="width:150%" onclick="currentSlide(6)"
+                alt="Mangalagiri">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="Arunachalam.png" style="width:100%" onclick="currentSlide(7)"
+                alt="Arunachalam">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="Ksheera Ramalingeswara Swamy.jpg" style="width:120%" onclick="currentSlide(8)"
+                alt="Ksheera Ramalingeswara Swamy Temple">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="Puri.jpg" style="width: 100%" onclick="currentSlide(9)"
+                alt="Puri">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="Badrinath.jpg" style="width:100%" onclick="currentSlide(10)"
+                 alt="Badrinath">
+        </div>
+
+    </div>
+    <h2 style="text-align:center"> Photo Gallery </h2>
+    <div class="container">
+        <div class="mySlides">
+            <div class="numbertext">1 / 10</div>
+            <img src="Kedarnath.jpg" style="width:59%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">2 / 10</div>
+            <img src="Konark Sun.png" style="width:37%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">3 / 10</div>
+            <img src="Shridi.jpg" style="width:44%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">4 / 10</div>
+            <img src="Tirupathi Temple.jpg" style="width:500%" style="height:80%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">5 / 10</div>
+            <img src="Varanasi.png" style="width: 54%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">6 / 10</div>
+            <img src="Mangalagiri.jpg" style="width:69%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">7 / 10</div>
+            <img src="Arunachalam.png" style="width:49%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">8 / 10</div>
+            <img src="Ksheera Ramalingeswara Swamy.jpg" style="width:59%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">9 / 10</div>
+            <img src="Puri.jpg" style="width:44%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">10 / 10</div>
+            <img src="Badrinath.jpg" style="width:47%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+        <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("demo");
+                let captionText = document.getElementById("caption");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += "active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+        </script>
+
+</body>
+
+</html>
